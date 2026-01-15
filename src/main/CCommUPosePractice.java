@@ -16,6 +16,16 @@ public class CCommUPosePractice {
         // Sota用モーション制御クラス
         CCommUMotion motion = new CCommUMotion(mem);
 
+        if (!mem.Connect()) {
+            System.err.println("ロボットに接続できません");
+            return;
+        }
+
+        if (!motion.InitRobot_CommU()) {
+            System.err.println("CommU の初期化中にエラーが検出されました");
+            return;
+        }
+
         CRobotPose commuInitPose = CCommUMotion.getInitPose();
         commuInitPose.setLED_CommU(Color.GREEN, 255, 255, Color.GREEN);
         CRobotPoseDebugger.cRobotPosePrint(commuInitPose);
