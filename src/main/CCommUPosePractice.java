@@ -29,9 +29,9 @@ public class CCommUPosePractice {
         CRobotPose pose = CCommUMotion.getInitPose();
         pose.setLED_CommU(Color.GREEN, 255, 255, Color.GREEN);
         CRobotPoseDebugger.cRobotPosePrint(pose);
-        pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_L_SHOULDER_P), (short) 100);
+        pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_L_SHOULDER_P), (short) -1000);
         CRobotPoseDebugger.cRobotPosePrint(pose);
-        pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_R_SHOULDER_P), (short) 100);
+        pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_R_SHOULDER_P), (short) 1000);
         CRobotPoseDebugger.cRobotPosePrint(pose);
 
         // CRobotUtil.Log(TAG, "play:" + motion.play(pose, 2000));
