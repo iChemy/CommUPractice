@@ -35,10 +35,14 @@ public class CCommUPosePractice {
         CRobotPoseDebugger.cRobotPosePrint(pose);
 
         // サーボモータのソフトスタート (これがないと動かない...?)
+        CRobotUtil.Log(TAG, "servo on");
         motion.ServoOn();
 
         CRobotUtil.Log(TAG, "play:" + motion.play(pose, 2000));
         motion.waitEndinterpAll();
         CRobotUtil.Log(TAG, "interpolation end");
+
+        CRobotUtil.Log(TAG, "servo off");
+        motion.ServoOff();
     }
 }
