@@ -2,10 +2,12 @@ package main;
 
 import jp.vstone.RobotLib.CCommUMotion;
 import jp.vstone.RobotLib.CRobotMem;
-import jp.vstone.RobotLib.CSotaMotion;
+import jp.vstone.RobotLib.CRobotUtil;
 import utils.CRobotMemDebugger;
 
 public class CCommUMotionPractice {
+    static final String TAG = "CCommUMotionPractice";
+
     public static void main(String[] args) {
         // VSMDと通信ソケット・メモリアクセス用クラス
         CRobotMem mem = new CRobotMem();
@@ -18,10 +20,11 @@ public class CCommUMotionPractice {
                 return;
             }
             CRobotMemDebugger.cRobotMemPrint(mem);
-            System.out.println("enable collision detection");
+
+            CRobotUtil.Log(TAG, "enable collision detection");
             motion.EnableCollidionDetect();
             CRobotMemDebugger.cRobotMemPrint(mem);
-            System.out.println("disable collision detection");
+            CRobotUtil.Log(TAG, "disable collision detection");
             motion.DisableCollidionDetect();
             CRobotMemDebugger.cRobotMemPrint(mem);
         } else {
