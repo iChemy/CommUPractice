@@ -2,7 +2,7 @@ package main;
 
 import jp.vstone.RobotLib.CRobotMem;
 
-public class Main {
+public class CRobotMemPractice {
     public static void main(String[] args) {
 		//VSMDと通信ソケット・メモリアクセス用クラス
 		CRobotMem mem = new CRobotMem();
