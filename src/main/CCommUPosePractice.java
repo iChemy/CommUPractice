@@ -5,6 +5,7 @@ import jp.vstone.RobotLib.CCommUMotion;
 import jp.vstone.RobotLib.CRobotMem;
 import jp.vstone.RobotLib.CRobotPose;
 import jp.vstone.RobotLib.CRobotUtil;
+import utils.CRobotMemDebugger;
 import utils.CRobotPoseDebugger;
 
 public class CCommUPosePractice {
@@ -40,13 +41,19 @@ public class CCommUPosePractice {
         CRobotUtil.Log(TAG, "servo on");
         motion.ServoOn();
 
+        CRobotMemDebugger.cRobotMemPrint(mem);
+
         CRobotUtil.Log(TAG, "play:" + motion.play(CCommUMotion.getInitPose(), 2000));
         motion.waitEndinterpAll();
         CRobotUtil.Log(TAG, "interpolation end");
 
+        CRobotMemDebugger.cRobotMemPrint(mem);
+
         CRobotUtil.Log(TAG, "play:" + motion.play(pose, 2000));
         motion.waitEndinterpAll();
         CRobotUtil.Log(TAG, "interpolation end");
+
+        CRobotMemDebugger.cRobotMemPrint(mem);
 
         CRobotUtil.Log(TAG, "servo off");
         motion.ServoOff();
