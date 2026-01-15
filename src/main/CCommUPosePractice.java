@@ -26,12 +26,16 @@ public class CCommUPosePractice {
             return;
         }
 
-        CRobotPose commuInitPose = CCommUMotion.getInitPose();
-        commuInitPose.setLED_CommU(Color.GREEN, 255, 255, Color.GREEN);
-        CRobotPoseDebugger.cRobotPosePrint(commuInitPose);
+        CRobotPose pose = CCommUMotion.getInitPose();
+        pose.setLED_CommU(Color.GREEN, 255, 255, Color.GREEN);
+        CRobotPoseDebugger.cRobotPosePrint(pose);
+        pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_L_SHOULDER_P), (short) 100);
+        CRobotPoseDebugger.cRobotPosePrint(pose);
+        pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_R_SHOULDER_P), (short) 100);
+        CRobotPoseDebugger.cRobotPosePrint(pose);
 
-        CRobotUtil.Log(TAG, "play:" + motion.play(commuInitPose, 1000));
-        motion.waitEndinterpAll();
-        CRobotUtil.Log(TAG, "interpolation end");
+        // CRobotUtil.Log(TAG, "play:" + motion.play(pose, 2000));
+        // motion.waitEndinterpAll();
+        // CRobotUtil.Log(TAG, "interpolation end");
     }
 }
