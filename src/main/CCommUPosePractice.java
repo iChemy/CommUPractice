@@ -34,8 +34,8 @@ public class CCommUPosePractice {
         pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_R_SHOULDER_P), (short) 1000);
         CRobotPoseDebugger.cRobotPosePrint(pose);
 
-        // CRobotUtil.Log(TAG, "play:" + motion.play(pose, 2000));
-        // motion.waitEndinterpAll();
-        // CRobotUtil.Log(TAG, "interpolation end");
+        CRobotUtil.Log(TAG, "play:" + motion.play(pose, 2000));
+        motion.waitEndinterpAll();
+        CRobotUtil.Log(TAG, "interpolation end");
     }
 }
