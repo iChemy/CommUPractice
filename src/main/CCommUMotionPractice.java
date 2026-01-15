@@ -13,6 +13,10 @@ public class CCommUMotionPractice {
         CCommUMotion motion = new CCommUMotion(mem);
 
         if (mem.Connect()) {
+            if (!motion.InitRobot_CommU()) {
+                System.err.println("CommU の初期化中にエラーが検出されました");
+                return;
+            }
             CRobotMemDebugger.cRobotMemPrint(mem);
             System.out.println("enable collision detection");
             motion.EnableCollidionDetect();
