@@ -29,14 +29,20 @@ public class CCommUPosePractice {
         CRobotPose pose = CCommUMotion.getInitPose();
         pose.setLED_CommU(Color.GREEN, 255, 255, Color.GREEN);
         CRobotPoseDebugger.cRobotPosePrint(pose);
-        pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_L_SHOULDER_P), (short) -1000);
+        pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_L_SHOULDER_P), (short) -2400);
         CRobotPoseDebugger.cRobotPosePrint(pose);
-        pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_R_SHOULDER_P), (short) 1000);
+        pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_R_SHOULDER_P), (short) 2400);
         CRobotPoseDebugger.cRobotPosePrint(pose);
+
+        motion.EnableCollidionDetect();
 
         // サーボモータのソフトスタート (これがないと動かない...?)
         CRobotUtil.Log(TAG, "servo on");
         motion.ServoOn();
+
+        CRobotUtil.Log(TAG, "play:" + motion.play(CCommUMotion.getInitPose(), 2000));
+        motion.waitEndinterpAll();
+        CRobotUtil.Log(TAG, "interpolation end");
 
         CRobotUtil.Log(TAG, "play:" + motion.play(pose, 2000));
         motion.waitEndinterpAll();
