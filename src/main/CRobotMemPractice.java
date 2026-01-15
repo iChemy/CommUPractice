@@ -16,7 +16,7 @@ public class CRobotMemPractice {
 
     static void cRobotMemDebug(CRobotMem mem) {
         System.out.println("バッテリ測定電圧:" + mem.BatteryVoltage.get());
-        System.out.println("衝突回避モード:" + mem.CollidionDetectDisable.get());
+        System.out.println("衝突回避モード:" + ((mem.CollidionDetectDisable.get() == 0) ? "on" : "off"));
         System.out.println("モデル名:" + mem.ModelName.get());
     }
 }
