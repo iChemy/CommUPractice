@@ -34,14 +34,6 @@ public class CCommUPosePractice {
         CRobotPoseDebugger.cRobotPosePrint(pose);
         pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_R_SHOULDER_P), (short) 2400);
         CRobotPoseDebugger.cRobotPosePrint(pose);
-        pose.SetTorque(new Byte[] {
-                CCommUMotion.SV_L_SHOULDER_P,
-                CCommUMotion.SV_L_SHOULDER_R,
-                CCommUMotion.SV_R_SHOULDER_P,
-                CCommUMotion.SV_R_SHOULDER_R,
-        }, new Short[] {
-                100, 100, 100, 100
-        });
 
         motion.EnableCollidionDetect();
 
@@ -52,6 +44,13 @@ public class CCommUPosePractice {
         CRobotMemDebugger.cRobotMemPrint(mem);
 
         CRobotPose init_pose = CCommUMotion.getInitPose();
+        Byte[] poseIds = new Byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+        Short[] poseVals = new Short[] { 0, 0, 600, 0, -600, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        Byte[] torqueIds = new Byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+        Short[] torqueVals = new Short[] { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 50, 50 };
+        init_pose.SetPose(poseIds, poseVals);
+        init_pose.SetTorque(torqueIds, torqueVals);
+
         CRobotUtil.Log(TAG, "play:" + motion.play(init_pose, 2000));
         motion.waitEndinterpAll();
         CRobotUtil.Log(TAG, "interpolation end");
