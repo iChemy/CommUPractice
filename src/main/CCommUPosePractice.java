@@ -50,6 +50,8 @@ public class CCommUPosePractice {
         Short[] torqueVals = new Short[] { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 50, 50 };
         init_pose.SetPose(poseIds, poseVals);
         init_pose.SetTorque(torqueIds, torqueVals);
+        pose.SetPose(poseIds, poseVals);
+        pose.SetTorque(torqueIds, torqueVals);
 
         CRobotUtil.Log(TAG, "play:" + motion.play(init_pose, 2000));
         motion.waitEndinterpAll();
