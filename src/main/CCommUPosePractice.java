@@ -69,6 +69,8 @@ public class CCommUPosePractice {
 
         CRobotMemDebugger.cRobotMemPrint(mem);
 
+        // すぐにサーボをoffにしても違いがわからない
+        CRobotUtil.wait(10000);
         CRobotUtil.Log(TAG, "servo off");
         motion.ServoOff();
     }
