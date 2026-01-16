@@ -63,6 +63,8 @@ public class CCommUPosePractice {
         CRobotUtil.Log(TAG, "play:" + motion.play(pose, 2000));
         motion.waitEndinterpAll();
         CRobotUtil.Log(TAG, "interpolation end");
+        CRobotPoseDebugger.cRobotPosePrint(pose);
+        CRobotPoseDebugger.cRobotPoseTorquePrint(pose);
 
         CRobotMemDebugger.cRobotMemPrint(mem);
 
