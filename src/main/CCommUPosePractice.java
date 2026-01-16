@@ -40,7 +40,7 @@ public class CCommUPosePractice {
                 CCommUMotion.SV_R_SHOULDER_P,
                 CCommUMotion.SV_R_SHOULDER_R,
         }, new Short[] {
-                50, 50, 50, 50
+                100, 100, 100, 100
         });
 
         motion.EnableCollidionDetect();
