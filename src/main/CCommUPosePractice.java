@@ -34,6 +34,14 @@ public class CCommUPosePractice {
         CRobotPoseDebugger.cRobotPosePrint(pose);
         pose.addServoAngle(Byte.valueOf(CCommUMotion.SV_R_SHOULDER_P), (short) 2400);
         CRobotPoseDebugger.cRobotPosePrint(pose);
+        pose.SetTorque(new Byte[] {
+                CCommUMotion.SV_L_SHOULDER_P,
+                CCommUMotion.SV_L_SHOULDER_R,
+                CCommUMotion.SV_R_SHOULDER_P,
+                CCommUMotion.SV_R_SHOULDER_R,
+        }, new Short[] {
+                50, 50, 50, 50
+        });
 
         motion.EnableCollidionDetect();
 
